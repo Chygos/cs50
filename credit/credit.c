@@ -2,6 +2,7 @@
 #include <string.h>
 #include <ctype.h>
 #include  <stdlib.h>
+#include <cs50.h>
 
 int main(void)
 {
@@ -11,6 +12,8 @@ int main(void)
     {
         printf("Card Number: ");
         scanf("%lli",  &cardNumber);
+        /*
+        long long cardnumber = get_long_long("cardNumber: ");
     } 
     while (cardNumber < 0);
 
