@@ -2,6 +2,7 @@
 #include <string.h>
 #include <ctype.h>
 #include  <stdlib.h>
+#include <cs50.h>
 
 int main(void)
 {
@@ -14,6 +15,8 @@ int main(void)
 
     printf("Change: ");
     scanf("%f", &money);
+    //or with cs50
+    //cash = get_float("Change: ");
 
     //converting to kobo and removing thedecimal part
     int coins = 100 * money;
@@ -45,5 +48,5 @@ int main(void)
         }
     }
     printf("%d\n", result);
-    return 1;
+    return 0;
 }
