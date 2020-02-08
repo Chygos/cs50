@@ -16,8 +16,8 @@ def checkSumValidCard(cardNumber):
     
     #Visa= 13,16, American Express = 16, MasterCard = 15
     if len(cardNumber) not in [13,15,16]:
-        print('CARD INVALID')
-        print("Please input a valid  card")
+        print('INVALID')
+#         print("Please input a valid  card")
     else:
         if len(cardNumber) in [13, 15, 16]:
             for _ , num_e in enumerate(cardNumber[1::2],1): #takes from the second to the last digit
