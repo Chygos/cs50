@@ -47,5 +47,5 @@ def checkCard(cardNumber):
 
 if __name__ == "__main__":
     cardNumber = [int(x) for x in cardNumber]
-    checkCard(cardNumber)
     checkSumValidCard(cardNumber)
+    checkCard(cardNumber)
