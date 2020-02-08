@@ -1,38 +1,35 @@
 #include <stdio.h>
+#include <cs50.h>
 #include <string.h>
 #include <ctype.h>
-#include  <stdlib.h>
-#include <cs50.h>
 
 int main(void)
 {
-    long long cardNumber;
-
+    long cardNumber;
     do
     {
-        printf("Card Number: ");
-        scanf("%lli",  &cardNumber);
-        /*
-        long long cardnumber = get_long_long("cardNumber: ");
-    } 
+        cardNumber = get_long("Number: ");
+        // printf("%li\n", cardNumber);
+    }
     while (cardNumber < 0);
-
+    
     //counts if no of digits == 13,15,or 16
     int count = 0; 
-    long long digits = cardNumber; //digits in cardnumber
+    long digits = cardNumber; //counting n_digits in cardnumber
     while (digits > 0)
     {
-        digits = digits/10;
+        digits = digits / 10;
         count++;
     }
     if ((count != 13) && (count != 15) && (count != 16))
     {
-        printf("INVALID!\n");
+        printf("INVALID\n");
+        return 0;
     }
     
     //initialising number array with the cardnumbers reversed
     int number[count];
-    for (int i=0; i < count; i++)
+    for (int i = 0; i < count; i++)
     {
         number[i] = cardNumber % 10; //reverses the cardnumber
         cardNumber = cardNumber / 10;
@@ -63,15 +60,11 @@ int main(void)
     }
     
     //checking  validity of card
-    if (count == 16)
+    if (count == 15)
     {
-        if (total % 10 == 0 && number[15] == 3 && (number[14] == 4 || number[14] == 7))
+        if (total % 10 == 0 && number[14] == 3 && (number[13] == 4 || number[13] == 7))
         {
-            printf("AMERICAN EXPRESS\n");
-        }
-        else if ((total % 10 == 0 && number[15] == 4))
-        {
-            printf("VISA\n");
+            printf("AMEX\n");
         }
         else
         {
@@ -79,11 +72,15 @@ int main(void)
         }
     }
 
-    else if (count == 15)
+    else if (count == 16)
     {
-        if (total % 10 == 0 && number[14] == 5 && (number[13] == 1 || number[14] == 2 || number[14] == 3 || number[14] == 4 || number[14] == 5))
+        if (total % 10 == 0 && number[15] == 5 && (number[14] == 1 || number[14] == 2 || number[14] == 3 || number[14] == 4 || number[14] == 5))
         {
             printf("MASTERCARD\n");
+        }
+        else if ((total % 10 == 0 && number[15] == 4))
+        {
+            printf("VISA\n");
         }
         else
         {
@@ -103,5 +100,5 @@ int main(void)
             printf("INVALID\n");
         }       
     }
-    return 1;
+    return 0;
 }
